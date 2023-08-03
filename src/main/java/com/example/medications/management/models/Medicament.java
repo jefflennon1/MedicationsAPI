@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
  
@@ -11,102 +13,111 @@ import jakarta.persistence.Id;
 public class Medicament {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
+	private Long id;
+	
 	@Column(name = "REGISTRO")
-	@JsonProperty
-	private Long REGISTRO;
+	@JsonProperty(value = "REGISTRO")
+	private String registro;
 	
 	@Column(name = "PRODUTO")
-	@JsonProperty
-	private String PRODUTO;
+	@JsonProperty(value = "PRODUTO")
+	private String produto;
 	
 	@Column(name = "PRINCIPIO_ATIVO")
-	@JsonProperty
-	private String PRINCIPIO_ATIVO;
+	@JsonProperty(value= "PRINCIPIO_ATIVO")
+	private String principioAtivo;
 
 	@Column(name = "LABORATORIO")
-	@JsonProperty
-	private String LABORATORIO;
+	@JsonProperty(value = "LABORATORIO")
+	private String laboratorio;
 	
 	@Column(name = "APRESENTACAO")
-	@JsonProperty
-	private String APRESENTACAO;
+	@JsonProperty(value = "APRESENTACAO")
+	private String apresentacao;
 	
 	@Column(name = "CLASSE_TERAPEUTICA")
-	@JsonProperty
-	private String CLASSE_TERAPEUTICA;
+	@JsonProperty(value = "CLASSE_TERAPEUTICA")
+	private String classeTerapeutica;
 	
 	@Column(name = "COMERCIALIZACAO_2022")
 	@JsonProperty(value = "COMERCIALIZACAO_2022")
-	private String COMERCIALIZACAO;
+	private String comercializacao;
 	
 	@Column(name = "TARJA")
-	@JsonProperty 
-	private String TARJA;
+	@JsonProperty(value = "TARJA") 
+	private String tarja;
 
-	
-	public Long getREGISTRO() {
-		return REGISTRO;
+	public String getRegistro() {
+		return registro;
 	}
 
-	public void setREGISTRO(Long rEGISTRO) {
-		REGISTRO = rEGISTRO;
+	public void setRegistro(String registro) {
+		this.registro = registro;
 	}
 
-	public String getPRODUTO() {
-		return PRODUTO;
+	public String getProduto() {
+		return produto;
 	}
 
-	public void setPRODUTO(String pRODUTO) {
-		PRODUTO = pRODUTO;
+	public void setProduto(String produto) {
+		this.produto = produto;
 	}
 
-	public String getPRINCIPIO_ATIVO() {
-		return PRINCIPIO_ATIVO;
+	public String getPrincipioAtivo() {
+		return principioAtivo;
 	}
 
-	public void setPRINCIPIO_ATIVO(String pRINCIPIO_ATIVO) {
-		PRINCIPIO_ATIVO = pRINCIPIO_ATIVO;
+	public void setPrincipioAtivo(String principioAtivo) {
+		this.principioAtivo = principioAtivo;
 	}
 
-	public String getLABORATORIO() {
-		return LABORATORIO;
+	public String getLaboratorio() {
+		return laboratorio;
 	}
 
-	public void setLABORATORIO(String lABORATORIO) {
-		LABORATORIO = lABORATORIO;
+	public void setLaboratorio(String laboratorio) {
+		this.laboratorio = laboratorio;
 	}
 
-	public String getAPRESENTACAO() {
-		return APRESENTACAO;
+	public String getApresentacao() {
+		return apresentacao;
 	}
 
-	public void setAPRESENTACAO(String aPRESENTACAO) {
-		APRESENTACAO = aPRESENTACAO;
+	public void setApresentacao(String apresentacao) {
+		this.apresentacao = apresentacao;
 	}
 
-	public String getCLASSE_TERAPEUTICA() {
-		return CLASSE_TERAPEUTICA;
+	public String getClasseTerapeutica() {
+		return classeTerapeutica;
 	}
 
-	public void setCLASSE_TERAPEUTICA(String cLASSE_TERAPEUTICA) {
-		CLASSE_TERAPEUTICA = cLASSE_TERAPEUTICA;
+	public void setClasseTerapeutica(String classeTerapeutica) {
+		this.classeTerapeutica = classeTerapeutica;
 	}
 
-	public String getCOMERCIALIZACAO() {
-		return COMERCIALIZACAO;
+	public String getComercializacao() {
+		return comercializacao;
 	}
 
-	public void setCOMERCIALIZACAO(String cOMERCIALIZACAO) {
-		COMERCIALIZACAO = cOMERCIALIZACAO;
+	public void setComercializacao(String comercializacao) {
+		this.comercializacao = comercializacao;
 	}
 
-	public String getTARJA() {
-		return TARJA;
+	public String getTarja() {
+		return tarja;
 	}
 
-	public void setTARJA(String tARJA) {
-		TARJA = tARJA;
+	public void setTarja(String tarja) {
+		this.tarja = tarja;
 	}
 
-	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	} 
 }
