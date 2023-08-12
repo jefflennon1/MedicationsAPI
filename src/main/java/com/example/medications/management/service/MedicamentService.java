@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.medications.management.models.Medicament;
 import com.example.medications.management.repository.MedicamentsRepository;
@@ -16,9 +17,23 @@ public class MedicamentService {
 	
 	public void importDataXls(List<Medicament> medicaments) {
 		try {
-			repository.saveAll(medicaments);
+			for(Medicament medicament : medicaments) { 
+				
+				Medicament medicationExisting = repository.findbyRegistro(medicament.getRegistro().toString());
+				
+				if(medicationExisting != null && !medicationExisting.getRegistro().isEmpty()) {
+					repository.update(medicament);
+				}else {
+					repository.save(medicament);
+				}
+			}
 		} catch (Exception e) {
 			System.out.println("[ERROR]:"+ e.getMessage());
 		}
+	}
+
+	 
+	public List<Medicament> findByPincipioAtivoORProduto(String name){
+		 return repository.findByPincipioAtivoORProduto(name); 
 	}
 }
