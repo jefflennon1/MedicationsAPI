@@ -32,7 +32,7 @@ public interface MedicamentsRepository extends JpaRepository<Medicament, String>
 			+ "APRESENTACAO = :medicament.apresentacao,"
 			+ "TARJA = :medicament.tarja,"
 			+ "COMERCIALIZACAO_2022 = :medicament.comercializacao"
-			+ "WHERE REGISTRO = :medicament.registro LIMIT 1"
+			+ "WHERE REGISTRO = :medicament.registro LIMIT 1" 
 	, nativeQuery = true)
 	public Medicament update(Medicament medicament);
 	
